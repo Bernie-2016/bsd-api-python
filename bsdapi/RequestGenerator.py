@@ -63,5 +63,5 @@ class RequestGenerator:
         params.append(('api_mac', self._signing_string(api_ts, api_call, params)))
 
         protocol = 'https' if self.https else 'http'
-        query = self._query_str(params, quote=True)
+        query = self._query_str(params, quote=False)
         return URL(protocol=protocol, host=self.api_host, path=self.api_base + api_call, query=query)
